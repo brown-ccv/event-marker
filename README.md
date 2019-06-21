@@ -3,17 +3,17 @@
 JS utilities for Event Markers with serial ports
 
 
-### Installation
+## Installation
 
-The package can be installed via NPM from github.
+The package can be installed via npm from github.
 
 ```
 npm install https://github.com/brown-ccv/event-marker.git
 ```
 
-### Usage
+## Usage
 
-#### isPort
+### isPort (async)
 
 **Arguments:**
 * vendorId - string - character string identifying the vendor
@@ -22,7 +22,7 @@ npm install https://github.com/brown-ccv/event-marker.git
 **Returns:**
 * boolean - whether there is a port associated with the device
 
-#### getPort
+### getPort (async)
 
 **Arguments:**
 * vendorId - string - character string identifying the vendor
@@ -31,7 +31,7 @@ npm install https://github.com/brown-ccv/event-marker.git
 **Returns:**
 * SerialPort - port object where device is connected
 
-#### sendToPort
+### sendToPort
 
 **Arguments:**
 * port - SerialPort - port object where device is connected
