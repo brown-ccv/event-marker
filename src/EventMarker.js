@@ -1,7 +1,7 @@
-var SerialPort = require('serialport');
+const SerialPort = require('serialport');
 
 
-exports.isPort = async (vendorId, productId) => {
+const isPort = async (vendorId, productId) => {
   const portList = await SerialPort.list()
   const device = portList.filter((device) => {
     return ((device.vendorId === vendorId.toUpperCase() ||
@@ -15,7 +15,7 @@ exports.isPort = async (vendorId, productId) => {
   }
 }
 
-exports.getPort = async (vendorId, productId) => {
+const getPort = async (vendorId, productId) => {
   const portList = await SerialPort.list()
   const device = portList.filter((device) => {
     return ((device.vendorId === vendorId.toUpperCase() ||
@@ -30,6 +30,12 @@ exports.getPort = async (vendorId, productId) => {
   }
 }
 
-exports.sendToPort = async (port, event_code) => {
+const sendToPort = async (port, event_code) => {
   port.then(p => p.write(Buffer.from([event_code])))
+}
+
+export {
+  isPort,
+  getPort,
+  sendToPort
 }
