@@ -26,7 +26,7 @@ exports.getPort = async (vendorId, productId) => {
     const port = new SerialPort(path)
     return port
   } catch {
-    return {}
+    return false
   }
 }
 
