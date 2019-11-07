@@ -2,8 +2,9 @@ var SerialPort = require('serialport');
 
 
 exports.isPort = async (vendorId, productId) => {
+  let portList
   try {
-    const portList = await SerialPort.list()
+    portList = await SerialPort.list()
   } catch {
     return false
   }
@@ -20,8 +21,9 @@ exports.isPort = async (vendorId, productId) => {
 }
 
 exports.getPort = async (vendorId, productId) => {
+  let portList
   try {
-    const portList = await SerialPort.list()
+    portList = await SerialPort.list()
   } catch {
     return false
   }
