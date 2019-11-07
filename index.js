@@ -25,8 +25,8 @@ exports.getPort = async (vendorId, productId) => {
     const path = device[0].path;
     const port = new SerialPort(path)
     return port
-  } catch (e) {
-    throw "Couldn't find port"
+  } catch () {
+    return {}
   }
 }
 
