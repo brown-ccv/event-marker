@@ -22,7 +22,7 @@ exports.getPort = async (vendorId, productId) => {
             device.vendorId === vendorId)  && device.productId === productId);
   })
   try {
-    const path = device[0].comName;
+    const path = device[0].path;
     const port = new SerialPort(path)
     return port
   } catch {
@@ -30,6 +30,6 @@ exports.getPort = async (vendorId, productId) => {
   }
 }
 
-exports.sendToPort = async (port, event_code) => {
-  port.then(p => p.write(Buffer.from([event_code])))
+exports.sendToPort = (port, event_code) => {
+  port.write(Buffer.from([event_code]))
 }
