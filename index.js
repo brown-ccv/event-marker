@@ -31,5 +31,9 @@ exports.getPort = async (vendorId, productId) => {
 }
 
 exports.sendToPort = (port, event_code) => {
-  port.write(Buffer.from([event_code]))
+  try {
+    port.write(Buffer.from([event_code]))
+  } catch {
+    throw "Couldn't write to port!"
+  }
 }
