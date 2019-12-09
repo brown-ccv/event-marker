@@ -1,13 +1,12 @@
 var should = require('chai').should();
 var eventmarker = require('../index.js');
 
-const vendorId = '16c0';
-const productId = '0483';
+const comName = 'com7';
 
 describe("Ports", () => {
 
   it("If no port, is port is empty", (done) => {
-    eventmarker.getPort(vendorId, productId)
+    eventmarker.getPort(comName)
       .then((res) => {
         res.should.be.empty
         done()
@@ -15,7 +14,7 @@ describe("Ports", () => {
   });
 
   it("If no port, has no port", (done) => {
-    eventmarker.isPort(vendorId, productId)
+    eventmarker.isPort(comName)
       .then((res) => {
         res.should.be.false
         done()
