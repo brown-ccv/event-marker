@@ -1,11 +1,11 @@
 const SerialPort = require('serialport');
 
 
-const isPort = async (vendorId, productId) => {
+const isPort = async (comName) => {
   const portList = await SerialPort.list()
   const device = portList.filter((device) => {
-    return ((device.vendorId === vendorId.toUpperCase() ||
-            device.vendorId === vendorId)  && device.productId === productId);
+    return (device.comName === comName.toUpperCase() ||
+            device.comName === comName);
   })
   if (device.length === 1) {
     return true
@@ -15,11 +15,11 @@ const isPort = async (vendorId, productId) => {
   }
 }
 
-const getPort = async (vendorId, productId) => {
+const getPort = async (comName) => {
   const portList = await SerialPort.list()
   const device = portList.filter((device) => {
-    return ((device.vendorId === vendorId.toUpperCase() ||
-            device.vendorId === vendorId)  && device.productId === productId);
+    return (device.comName === comName.toUpperCase() ||
+            device.comName === comName);
   })
   try {
     const path = device[0].comName;
