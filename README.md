@@ -18,6 +18,9 @@ npm install https://github.com/brown-ccv/event-marker.git
 **Arguments:**
 * vendorId - string - character string identifying the vendor
 * productId - string - character string identifying the product
+OR
+* comName - string - character string identifying the com name
+
 
 **Returns:**
 * boolean - whether there is a port associated with the device
@@ -27,11 +30,13 @@ npm install https://github.com/brown-ccv/event-marker.git
 **Arguments:**
 * vendorId - string - character string identifying the vendor
 * productId - string - character string identifying the product
+OR
+* comName - string - character string identifying the com name
 
 **Returns:**
 * SerialPort - port object where device is connected
 
-### sendToPort
+### sendToPort (async)
 
 **Arguments:**
 * port - SerialPort - port object where device is connected
