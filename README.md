@@ -36,7 +36,7 @@ OR
 **Returns:**
 * SerialPort - port object where device is connected
 
-### sendToPort
+### sendToPort (async)
 
 **Arguments:**
 * port - SerialPort - port object where device is connected
