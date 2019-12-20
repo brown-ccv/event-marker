@@ -11,7 +11,7 @@ describe("Ports", () => {
     it("If no port, is port is empty", (done) => {
       eventmarker.getPort(comName)
         .then((res) => {
-          res.should.be.empty
+          res.should.be.false
           done()
         })
     });
@@ -29,7 +29,7 @@ describe("Ports", () => {
     it("If no port, is port is empty", (done) => {
       eventmarker.getPort(vendorId, productId)
         .then((res) => {
-          res.should.be.empty
+          res.should.be.false
           done()
         })
     });

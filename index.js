@@ -45,14 +45,19 @@ const isPort = async (comVendorName, productId) => {
 }
 
 const getPort = async (comVendorName, productId) => {
-  const portList = await SerialPort.list()
+  let portList
+    try {
+      portList = await SerialPort.list()
+    } catch {
+      return false
+    }
   const device = getDevice(portList, comVendorName, productId)
   try {
     const path = device[0].comName;
     const port = new SerialPort(path)
     return port
   } catch {
-    return {}
+    return false
   }
 }
 
