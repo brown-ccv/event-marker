@@ -62,8 +62,13 @@ const getPort = async (comVendorName, productId) => {
 }
 
 const sendToPort = async (port, event_code) => {
-  port.then(p => p.write(Buffer.from([event_code])))
+  try {
+   port.write(Buffer.from([event_code]))
+  } catch (e) {
+    throw e
+  }
 }
+
 
 module.exports = {
   isPort,
